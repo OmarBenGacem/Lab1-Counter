@@ -21,7 +21,7 @@ module counter#(
     output logic [WIDTH-1:0] count   //current counted to value
 );
 
-always_ff @ (posedge clk) //the clock circuit behaviour
+always_ff @ (posedge clk) begin //the clock circuit behaviour
 
         if (rst) count <= {WIDTH{1'b0}}; //if reset, set count equal to zero
 
@@ -44,6 +44,7 @@ always_ff @ (posedge clk) //the clock circuit behaviour
             else count <= count + {{WIDTH-1{1'b0}}, en};
 
         end
+end
 
 
 endmodule
